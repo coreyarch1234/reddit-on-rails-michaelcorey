@@ -16,6 +16,10 @@
         </div>
         <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
             <%= post.body %>
+            <%= link_to "Delete", post_path(post), method: :delete,
+                                  data: { confirm: "You sure?" } %>
+            <%= link_to("Show", post_path(post), :class => 'action show') %>
+            <%= link_to 'Edit', edit_post_path(post) %>
         </div>
     </div>
     <% end %>
