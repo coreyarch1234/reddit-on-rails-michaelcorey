@@ -8,7 +8,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "can create new posts" do
       @post = posts(:one)
-      assert_not @post.save
+      assert @post.save
   end
 
   test "can delete posts" do

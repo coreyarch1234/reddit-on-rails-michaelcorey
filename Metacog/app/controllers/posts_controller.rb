@@ -4,20 +4,22 @@ class PostsController < ApplicationController
   end
 
   def new
-      @posts = Post.new
+      @post = Post.new
   end
 
   def create
-      @posts = Post.create(post_params)
-      if @posts.save
-          redirect_to('')
+      @post = Post.create(post_params)
+      if @post.save
+          redirect_to(@post)
       else
-          render 'new'
+          redirect_to(new_post_url)
+          flash[:notice] = "Post could not be saved."
       end
   end
 
   def show
     @post = Post.find(params[:id])
+    @comment = @post.comments.new
   end
 
   def edit

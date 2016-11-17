@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: This is a comment. It is going to be destroyed. :(
+  post: posts(:one)
+
+two:
+  body: MyText
