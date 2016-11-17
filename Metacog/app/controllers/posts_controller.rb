@@ -1,3 +1,5 @@
+require 'comments_controller'
+
 class PostsController < ApplicationController
   def index
       @posts = Post.all()
