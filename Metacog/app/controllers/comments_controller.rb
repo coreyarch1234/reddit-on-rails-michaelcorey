@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:post_id])
-    @post.comments.find(params[:id]).destroy
+    @comment =  @post.comments.find(params[:id])
     flash[:success] = "Comment deleted"
     redirect_to(@post)
   end
