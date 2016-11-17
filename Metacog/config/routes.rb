@@ -15,15 +15,15 @@ Rails.application.routes.draw do
 
   # get '', to: "posts#index"
   #
-  get "new", to: "posts#new"
+  # get "new", to: "posts#new"
   #
-  post 'new', to: 'posts#create'
+  # post 'new', to: 'posts#create'
   #
-  get 'posts/:id', to: 'posts#show'
+  # get 'posts/:id', to: 'posts#show'
   #
-  get 'post/:id/edit', to: 'posts#edit'
-  #
-  patch 'posts/:id', to: 'posts#update'
+  # get 'post/:id/edit', to: 'posts#edit'
+  # 
+  # patch 'posts/:id', to: 'posts#update'
   #
   # get 'comments', to: 'comments#index'
   #
