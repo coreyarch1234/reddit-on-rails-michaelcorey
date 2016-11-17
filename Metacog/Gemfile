@@ -19,9 +19,6 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 # gem 'better_errors'
 
-group :development do
-  gem "better_errors"
-end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

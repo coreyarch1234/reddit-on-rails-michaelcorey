@@ -7,9 +7,12 @@ Rails.application.routes.draw do
   #Resources for :comments
   # resources :comments, only: [:index, :new, :create, :destroy]
 
+  resources :posts
   resources :posts, only: [:index, :show, :new, :create, :destroy, :edit] do
       resources :comments, only: [:index, :new, :create, :destroy]
   end
+
+  # patch '/posts/:id/edit', to: "posts#edit"
 
   root to: "posts#index"
 
@@ -22,7 +25,7 @@ Rails.application.routes.draw do
   # get 'posts/:id', to: 'posts#show'
   #
   # get 'post/:id/edit', to: 'posts#edit'
-  # 
+  #
   # patch 'posts/:id', to: 'posts#update'
   #
   # get 'comments', to: 'comments#index'
