@@ -2,9 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <p>
-                <a href="/">Back</a>
-            </p>
+            <p><a href="/">Back</a></p>
             <h4><%= @post.title %></h4>
             <p><%= @post.body %></p>
             <hr>
@@ -29,19 +27,19 @@
             </div>
             <hr>
 
-            <%= form_for [@post, @comment] do |c| %>
-            <h4>Comments</h4>
-            <div class="form-group">
-                <%= c.text_area :body, class:"form-control" %>
-            </div>
-            <div class="text-xs-right">
-                <%= submit_tag "Submit", class: 'btn btn-default' %>
-            </div>
+            <%= form_for [@post, @comment] do |f| %>
+                <h4>Comments</h4>
+                <div class="form-group">
+                    <%= f.text_area :body, class:"form-control" %>
+                </div>
+                <div class="text-xs-right">
+                    <%= submit_tag "Submit", class: 'btn btn-default' %>
+                </div>
             <% end %>
             <hr>
-            <% @post.comments[0..-2].each do |comment| %>
-                <p><%= comment.body %></p>
-                    <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, data: { confirm: "You sure?" } %>
+            <% @post.comments[0..-2].each do |c| %>
+                <p><%= c.body %></p>
+                    <%= link_to "Delete", post_comment_path(c.id, :post_id => c.post_id), method: :delete, data: { confirm: "You sure?" } %>
             <% end %>
         </div>
     </div>
