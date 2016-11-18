@@ -29,19 +29,19 @@
             </div>
             <hr>
 
-            <%= form_for [@post, @comment] do |f| %>
+            <%= form_for [@post, @comment] do |c| %>
             <h4>Comments</h4>
             <div class="form-group">
-                <%= f.text_area :body, class:"form-control" %>
+                <%= c.text_area :body, class:"form-control" %>
             </div>
             <div class="text-xs-right">
                 <%= submit_tag "Submit", class: 'btn btn-default' %>
             </div>
             <% end %>
             <hr>
-            <% @post.comments[0..-2].each do |c| %>
-                <p><%= c.body %></p>
-                <%= link_to "Delete", post_comment_path(c.id, :post_id => c.post_id), method: :delete %>
+            <% @post.comments.each do |comment| %>
+                <p><%= comment.body %></p>
+                    <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, data: { confirm: "You sure?" } %>
             <% end %>
         </div>
     </div>
