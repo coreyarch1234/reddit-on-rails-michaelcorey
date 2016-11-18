@@ -12,12 +12,10 @@
         <% @posts.each do |post| %>
             <%= link_to post, controller: "posts", action: "show", id: post do  %>
             <div class="row">
-                <div class="postTitle col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="postTitle col-sm-3">
                     <%= post.title %>
                 </div>
-            </div>
-            <div class="row">
-                <div class="postBody col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="postBody col-sm-9">
                     <%= post.body %>
                 </div>
             </div>
