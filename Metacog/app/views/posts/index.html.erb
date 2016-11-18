@@ -10,7 +10,7 @@
     </div> -->
     <div class="postsContainer container">
         <% @posts.each do |post| %>
-            <%= link_to post do %>
+            <%= link_to post, controller: "posts", action: "show", id: post do  %>
             <div class="row">
                 <div class="postTitle col-xl-12 col-lg-12 col-md-12 col-sm-12">
                     <%= post.title %>
