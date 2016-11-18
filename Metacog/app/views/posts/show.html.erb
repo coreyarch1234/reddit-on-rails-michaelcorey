@@ -37,7 +37,7 @@
                 </div>
             <% end %>
             <hr>
-            <% @post.comments.each do |comment| %>
+            <% @post.comments[0..-2].each do |comment| %>
                 <p><%= comment.body %></p>
                     <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, data: { confirm: "You sure?" } %>
             <% end %>
