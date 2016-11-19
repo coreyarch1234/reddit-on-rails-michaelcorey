@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+    get '/login' => 'sessions#new'
+
+    post '/login' => 'sessions#create'
+    get '/logout' => 'sessions#destroy'
+
+    get '/signup' => 'users#new'
+    post '/users' => 'users#create'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   #Routes for posts
@@ -8,6 +16,7 @@ Rails.application.routes.draw do
   # resources :comments, only: [:index, :new, :create, :destroy]
 
   resources :posts
+  resources :users
   resources :posts, only: [:index, :show, :new, :create, :destroy, :edit] do
       resources :comments, only: [:index, :new, :create, :destroy]
   end
