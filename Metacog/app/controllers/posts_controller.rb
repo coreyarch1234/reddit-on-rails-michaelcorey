@@ -8,11 +8,13 @@ class PostsController < ApplicationController
   end
 
   def create
-      @post = Post.create(post_params)
+      @subreddit = Subreddit.find(params[:subreddit_id])
+      @post = @subreddit.posts.new(post_params)
+
       if @post.save
           redirect_to(controller: "posts", action: "show", id: @post.id)
       else
-          redirect_to(new_post_url)
+          redirect_to(new_subreddits_post_url)
           flash[:notice] = "Post could not be saved."
       end
   end

@@ -1,16 +1,15 @@
 <legend>New Post</legend>
-<!-- <form class="" action="/" method="post">
-    <label for="title">Title</label>
-    <input type="text" id="title">
-    <label for="body">Body</label>
-    <input type="text" id="body">
-    <input type="submit" name="name" value="">
-</form> -->
 
-<%= form_for(@post) do |p| %>
-    <%= p.label :title %>
-    <%= p.text_field :title %>
-    <%= p.label :body %>
-    <%= p.text_field :body %>
-    <%= submit_tag("Submit") %>
+
+<%= form_for [@subreddit, @post] do |f| %>
+<h4>New Post</h4>
+<div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+</div>
+<div class="text-xs-right">
+    <%= submit_tag "Submit", class: 'btn btn-default' %>
+</div>
 <% end %>

@@ -1,0 +1,12 @@
+<div class="container">
+    <h1><%= @subreddit.name %></h1>
+    <%= form_for @subreddit do |f| %>
+    <p>
+        <%= f.label :description %><br>
+        <%= f.text_area :description %>
+    </p>
+    <p>
+        <%= f.submit 'Submit' %>
+    </p>
+    <% end %>
+</div>
