@@ -15,15 +15,33 @@ Rails.application.routes.draw do
   #Resources for :comments
   # resources :comments, only: [:index, :new, :create, :destroy]
 
-  resources :posts
-  resources :users
-  resources :posts, only: [:index, :show, :new, :create, :destroy, :edit] do
-      resources :comments, only: [:index, :new, :create, :destroy]
+  # resources :subreddits, only: [:index, :new, :show, :create, :edit, :update] do
+  #     resources :posts, only: [:index, :show, :new, :create, :destroy, :edit, :update]
+  # end
+  # resources :posts, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
+  #     resources :comments, only: [:index, :new, :create, :destroy]
+  # end
+  # resource :subreddits, only: [:index, :new, :show, :create, :edit, :update] do
+  #     resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  # end
+  # resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy]  do
+  #     resources :comments, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  # end
+
+  resources :subreddits do
+      resources :posts
+  end
+
+  resources :posts do
+      resources :comments
   end
 
   # patch '/posts/:id/edit', to: "posts#edit"
 
-  root to: "posts#index"
+  root to: "subreddits#index"
+
+  # "subreddit/:subreddit_id/posts/:post_id/comments/:id", to: "comment#show"
+
 
   # get '', to: "posts#index"
   #
