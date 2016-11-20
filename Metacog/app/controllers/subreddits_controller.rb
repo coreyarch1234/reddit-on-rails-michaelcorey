@@ -1,4 +1,7 @@
 class SubredditsController < ApplicationController
+
+    before_filter :authorize
+    
     def index
         @subreddits = Subreddit.all
     end
@@ -19,7 +22,7 @@ class SubredditsController < ApplicationController
   def update
       @subreddit = Subreddit.find(params[:id])
       @subreddit.update_attributes(subreddit_params)
-      redirect_to(controller: "subreddit", action: "show", id: @subreddit.id)
+      redirect_to(action: "show", id: @subreddit.id)
   end
 
   def create

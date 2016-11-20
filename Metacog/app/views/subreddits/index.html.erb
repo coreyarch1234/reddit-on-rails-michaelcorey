@@ -1,14 +1,12 @@
-<h1>Subreddits#index</h1>
-<p>Find me in app/views/subreddits/index.html.erb</p>
+<h1>Subreddits</h1>
 <div class="container">
-    <% @subreddits.each do |s| %>
-    <div class="row">
-        <div class="postTitle col-sm-3">
-            <%= s.name %>
+    <% @subreddits.each do |subreddit| %>
+        <%= link_to subreddit.name, controller: "subreddits", action: "show", id: subreddit   %>
+        <div class="row">
+            <div class="postBody col-sm-9">
+                <%= subreddit.description %>
+            </div>
         </div>
-        <div class="postBody col-sm-9">
-            <%= s.description %>
-        </div>
-    </div>
+        <hr>
     <% end %>
 </div>

@@ -12,7 +12,8 @@ class PostsController < ApplicationController
       @post = @subreddit.posts.new(post_params)
 
       if @post.save
-          redirect_to(controller: "posts", action: "show", id: @post.id)
+        #   redirect_to(controller: "posts", action: "show", id: @post.id)
+        redirect_to(@subreddit)
       else
           redirect_to(new_subreddits_post_url)
           flash[:notice] = "Post could not be saved."

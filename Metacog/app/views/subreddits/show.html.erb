@@ -1,4 +1,4 @@
-<legend>Show Subreddit</legend>
+<!-- <legend><%=@subreddit.name %></legend> -->
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
@@ -27,11 +27,24 @@
             <hr>
             <h4>Posts</h4>
             <hr>
+            <%= form_for [@subreddit, @post] do |p| %>
+            <div class="form-group">
+                <%= p.label :title %>
+                <%= p.text_field :title %>
+                <%= p.label :body %>
+                <%= p.text_field :body %>
+            </div>
+            <div class="text-xs-right">
+                <%= submit_tag "Submit", class: 'btn btn-default' %>
+            </div>
+            <% end %>
+            <!-- <%= link_to "Add Post", :action=>"new", :controller=>"posts", :subreddit_id=>"1"  %> -->
             <% @subreddit.posts[0..-2].each do |post| %>
-                <%= link_to post, controller: "posts", action: "show", id: post do  %>
+                <!-- <%= link_to post, controller: "posts", action: "show", id: post do  %> -->
                 <div class="row">
                     <div class="postTitle col-sm-3">
-                        <%= post.title %>
+                        <%= link_to post.title, controller: "posts", action: "show", id: post   %>
+                        <!-- <%= post.title %> -->
                     </div>
                     <div class="postBody col-sm-9">
                         <%= post.body %>
@@ -41,6 +54,6 @@
             <% end %>
             </div>
 
-            <div class="row">
+            <!-- <div class="row">
                 <%= link_to @subreddit.posts, controller: "posts", action: "new" %>
-            </div>
+            </div> -->
