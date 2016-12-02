@@ -6,15 +6,15 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   #   assert_response :success
   # end
 
-  test "can create new posts" do
-      @post = posts(:one)
-      assert @post.save
-  end
-
-  test "can delete posts" do
-      @post = posts(:one)
-      @post.destroy
-      assert @post.destroyed?
-  end
+  # test "can create new posts" do
+  #     @post = posts(:one)
+  #     assert @post.save
+  # end
+  #
+  # test "can delete posts" do
+  #     @post = posts(:one)
+  #     @post.destroy
+  #     assert @post.destroyed?
+  # end
 
 end
